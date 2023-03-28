@@ -1,12 +1,13 @@
 import xml.etree.ElementTree as ET
-from flet import App, List, Label
+import flet as ft
+from flet import List, Label
 
 class NewsItem:
     def __init__(self, title, link):
         self.title = title
         self.link = link
 
-class MyApp(App):
+class MyApp(ft.app):
     def __init__(self):
         super().__init__()
         self.news_items = []

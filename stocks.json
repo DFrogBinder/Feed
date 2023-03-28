@@ -1,0 +1,29 @@
+{
+  "stocks": [
+    {
+      "ticker": "MTVC",
+      "name": "Motive Capital Corp II Units",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "IBTD",
+      "name": "iShares iBonds Dec 2023 Term Treasury ETF",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "BFS",
+      "name": "Saul Centers, Inc. Common Stock",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "GHY",
+      "name": "PGIM Global High Yield Fund, Inc.",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "NTRSO",
+      "name": "Northern Trust Corporation - Depositary Shares",
+      "exchange": "NASDAQ"
+    }
+  ]
+}

@@ -1,18 +1,19 @@
 import json
+import datetime as dt
 import rfeed
 
 # Load the JSON file containing stock ticker names
 with open('stocks.json', 'r') as f:
-    stocks = json.load(f)
+    data = json.load(f)
 
 # Create a list of items for the RSS feed
 items = []
-for stock in stocks:
+for stock in data["stocks"]:
     # Create an item for each stock
     item = rfeed.Item(
-        title=f"{stock} News",
-        link=f"https://finance.yahoo.com/quote/{stock}",
-        description=f"Latest news about {stock}"
+        title=f"{stock['ticker']} News",
+        link=f"https://finance.yahoo.com/quote/{stock['ticker']}",
+        description=f"Latest news about {stock['ticker']}"
     )
     items.append(item)
 
@@ -22,7 +23,7 @@ feed = rfeed.Feed(
     link="https://www.example.com/rss",
     description="Latest news about selected stocks",
     language="en-US",
-    lastBuildDate=datetime.datetime.now(),
+    lastBuildDate=dt.datetime.today(),
     items=items
 )
 
