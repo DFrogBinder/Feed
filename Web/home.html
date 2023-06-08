@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RSS Feed Reader</title>
+</head>
+<body>
+    <h1>RSS Feed Reader</h1>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.url.label }}: {{ form.url(size=70) }} {{ form.submit() }}
+    </form>
+
+    {% for feed in entries %}
+    <h2>{{ feed.feed.title }}</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Link</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+        {% for entry in feed.entries %}
+        <tr>
+            <td>{{ entry.title }}</td>
+            <td><a href="{{ entry.link }}">{{ entry.link }}</a></td>
+            <td>{{ entry.description }}</td>
+            <td><form method="POST" action="{{ url_for('delete_feed', id=feed.id) }}"><input type="submit" value="Delete"></form></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endfor %}
+</body>
+</html>
